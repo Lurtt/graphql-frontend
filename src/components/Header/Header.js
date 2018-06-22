@@ -10,6 +10,7 @@ function Header(props) {
   return (
     <header>
       <Link to="/">Home</Link>
+      <Link to="/search">Search</Link>
       {authToken && (
         <Link to="/create">Add Game</Link>
       )}

@@ -22,6 +22,7 @@ function Game({ game, index, favoriteMutation, updateStoreAfterFavorite }) {
   return (
     <div>
       <span>{game.name}</span>
+      {game.description && <span>, description: {game.description}</span>}
       <span>, {game.favorite.length} favorites | posted by {game.postedBy ? game.postedBy.name : 'Unknown'}</span>
       {authToken && <button onClick={() => favoriteGame()}>favorite</button>}
     </div>

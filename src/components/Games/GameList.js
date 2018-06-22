@@ -50,6 +50,7 @@ export const GAME_QUERY = gql`
         id
         createdAt
         name
+        description
         postedBy {
           id
           name
