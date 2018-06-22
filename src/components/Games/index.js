@@ -1,1 +1,1 @@
-export { default } from './GameList'
+export { default, GAME_QUERY } from './GameList'

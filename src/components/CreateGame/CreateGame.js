@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
+import { GAME_QUERY } from '../'
+
 class CreateGame extends Component {
   state = {
     name: '',
@@ -16,7 +18,16 @@ class CreateGame extends Component {
         name,
         description,
         url,
-      }
+      },
+      update: (store, { data: { postGame }}) => {
+        console.log({store, postGame});
+        const data = store.readQuery({ query: GAME_QUERY })
+        data.games.list.splice(0, 0, postGame)
+        store.writeQuery({
+          query: GAME_QUERY,
+          data,
+        })
+      },
     })
     this.props.history.push('/')
   }
@@ -56,6 +67,13 @@ const CREATE_GAME_MUTATION = gql`
       name
       description
       url
+      postedBy {
+        id
+        name
+      }
+      favorite {
+        id
+      }
     }
   }
 `
