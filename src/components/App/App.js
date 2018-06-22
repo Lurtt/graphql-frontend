@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { Switch, Route } from 'react-router-dom'
 
 import './App.css'
-import { Header, GameList, CreateGame } from '../'
+import { Header, GameList, CreateGame, Login } from '../'
 
 class App extends Component {
   render() {
@@ -12,6 +12,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={GameList} />
           <Route exact path="/create" component={CreateGame} />
+          <Route exact path="/login" component={Login} />
         </Switch>
       </Fragment>
     )

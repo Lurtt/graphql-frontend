@@ -20,7 +20,7 @@ class GameList extends Component {
 
     return (
       <div>
-        { list.map(game => <Game key={game.id} game={game} />) }
+        {list.map(game => <Game key={game.id} game={game} />)}
       </div>
     )
   }

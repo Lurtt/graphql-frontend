@@ -1,11 +1,31 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router'
 
-export default function Header() {
+import { AUTH_TOKEN } from '../../constants'
+
+function Header(props) {
+  const authToken = localStorage.getItem(AUTH_TOKEN)
+
   return (
     <header>
-      <Link to="/">Home</Link>{' | '}
-      <Link to="/create">Add Game</Link>
+      <Link to="/">Home</Link>
+      {authToken && (
+        <Link to="/create">Add Game</Link>
+      )}
+      {authToken ? (
+        <button onClick={() => {
+          localStorage.removeItem(AUTH_TOKEN)
+          props.history.push('/')
+        }}
+        >
+          logout
+        </button>
+      ) : (
+        <Link to="/login">login</Link>
+      )}
     </header>
   )
 }
+
+export default withRouter(Header)
