@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
+import './Game.css'
 import { AUTH_TOKEN } from '../../constants'
 
 function Game({ game, index, favoriteMutation, updateStoreAfterFavorite }) {
@@ -20,12 +21,12 @@ function Game({ game, index, favoriteMutation, updateStoreAfterFavorite }) {
   }
 
   return (
-    <div>
+    <section className="game-item">
       <span>{game.name}</span>
       {game.description && <span>, description: {game.description}</span>}
       <span>, {game.favorite.length} favorites | posted by {game.postedBy ? game.postedBy.name : 'Unknown'}</span>
-      {authToken && <button onClick={() => favoriteGame()}>favorite</button>}
-    </div>
+      {authToken && <button className="game-favorite" onClick={() => favoriteGame()}>favorite</button>}
+    </section>
   )
 }
 

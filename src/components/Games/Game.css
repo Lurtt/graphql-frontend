@@ -1,0 +1,26 @@
+.game-item {
+  display: flex;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.game-item:hover,
+.game-item:hover:nth-child(2n) {
+  background-color: #ddd;
+}
+
+.game-item:nth-child(2n) {
+  background-color: #eee;
+}
+
+.game-favorite {
+  margin-left: auto;
+  font-size: 1rem;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.game-favorite:hover {
+  font-weight: 500;
+}

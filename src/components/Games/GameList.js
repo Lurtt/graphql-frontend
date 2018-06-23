@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
+import './GameList.css'
 import Game from './Game'
 
 class GameList extends Component {
@@ -29,7 +30,7 @@ class GameList extends Component {
     const { list } = gameQuery.games
 
     return (
-      <div>
+      <main className="games-list">
         {
           list.map(game =>
           <Game
@@ -38,7 +39,7 @@ class GameList extends Component {
             updateStoreAfterFavorite={this.updateCacheAfterFavorite}
           />
         )}
-      </div>
+      </main>
     )
   }
 }

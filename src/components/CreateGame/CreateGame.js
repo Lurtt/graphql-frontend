@@ -53,7 +53,7 @@ class CreateGame extends Component {
           onChange={e => this.setState({ url: e.target.value })}
           placeholder="A url for the game"
         />
-        <button onClick={() => this.createGame()}>Submit</button>
+        <button className="btn" onClick={() => this.createGame()}>Submit</button>
       </div>
     )
   }

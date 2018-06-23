@@ -31,7 +31,7 @@ class Search extends Component {
           type="text"
           onChange={e => this.setState({ filter: e.target.value })}
         />
-        <button onClick={() => this.executeSearch()}>
+        <button className="btn" onClick={() => this.executeSearch()}>
           Search
         </button>
         {

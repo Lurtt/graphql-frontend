@@ -2,20 +2,23 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router'
 
+import './Header.css'
 import { AUTH_TOKEN } from '../../constants'
 
 function Header(props) {
   const authToken = localStorage.getItem(AUTH_TOKEN)
 
   return (
-    <header>
-      <Link to="/">Home</Link>
-      <Link to="/search">Search</Link>
-      {authToken && (
-        <Link to="/create">Add Game</Link>
-      )}
+    <header className="header-navigation">
+      <nav>
+        <Link className="header-link" to="/">Home</Link>
+        <Link className="header-link" to="/search">Search</Link>
+        {authToken && (
+          <Link className="header-link" to="/create">Add Game</Link>
+        )}
+      </nav>
       {authToken ? (
-        <button onClick={() => {
+        <button className="header-link" onClick={() => {
           localStorage.removeItem(AUTH_TOKEN)
           props.history.push('/')
         }}
@@ -23,7 +26,7 @@ function Header(props) {
           logout
         </button>
       ) : (
-        <Link to="/login">login</Link>
+        <Link className="header-link" to="/login">login</Link>
       )}
     </header>
   )
